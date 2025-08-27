@@ -46,15 +46,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	 */
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		// JwtToken存储
-		//endpoints.accessTokenConverter(jwtAccessTokenConverter());//当使用jwt做为凭证的时候
-		//endpoints.tokenStore(jwtTokenStore())
+		// JwtToken存储,核心：必须配置 authenticationManager 和 userDetailsService
+		endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService)
+				.tokenStore(jwtTokenStore()).accessTokenConverter(jwtAccessTokenConverter());
 		
-		//存储到数据库中
-		endpoints.tokenStore(tokenStore())
-				.userDetailsService(userDetailsService)// 读取验证用户信息
-        		.pathMapping("/oauth/confirm_access", "/custom/confirm_access")// 自定义授权跳转
-				.authenticationManager(authenticationManager);// 注入WebSecurityConfig配置的bean
+//		//存储到数据库中
+//		endpoints.tokenStore(tokenStore())
+//				.userDetailsService(userDetailsService)// 读取验证用户信息
+//        		.pathMapping("/oauth/confirm_access", "/custom/confirm_access")// 自定义授权跳转
+//				.authenticationManager(authenticationManager);// 注入WebSecurityConfig配置的bean
 	}
 	/**
 	 * 配置令牌端点的安全约束
