@@ -19,7 +19,3 @@
 - [Gateway 聚合 Knife4j 文档](spring-cloud-knife4j) — Spring Cloud Gateway 统一聚合各微服务 Swagger/Knife4j 接口文档，访问 `/doc.html`
 
 ---
-
-## 3. 安全认证
-
-- [OAuth2 统一授权认证中心](spring-cloud-oauth2) — 基于 Spring Security OAuth2 的 UAA 认证中心，支持密码/授权码/隐式/客户端凭证 4 种模式，含非前后端分离 SSO 客户端（订单/会员）与前后端分离门户 SSO 接入
