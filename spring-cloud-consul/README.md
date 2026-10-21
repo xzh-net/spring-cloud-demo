@@ -1,4 +1,4 @@
-# Spring Cloud Consul
+# Consul 注册与配置中心
 
 ```bash
 mvn clean compile
